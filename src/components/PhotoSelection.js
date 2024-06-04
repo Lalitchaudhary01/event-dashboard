@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-const PhotoSelection = ({ photos, onSelect }) => {
+const PhotoSelection = ({ onSelect }) => {
   const [selectedPhotos, setSelectedPhotos] = useState([]);
+  const [uploadedPhotos, setUploadedPhotos] = useState([]);
 
   const handleSelect = (photo) => {
     setSelectedPhotos((prevSelected) =>
@@ -11,15 +12,24 @@ const PhotoSelection = ({ photos, onSelect }) => {
     );
   };
 
+  const handleUpload = (event) => {
+    const files = Array.from(event.target.files);
+    const newPhotos = files.map((file) => ({
+      id: URL.createObjectURL(file),
+      url: URL.createObjectURL(file),
+    }));
+    setUploadedPhotos((prevUploaded) => [...prevUploaded, ...newPhotos]);
+  };
+
   const handleSubmit = () => {
     onSelect(selectedPhotos);
   };
 
   return (
-    <div className="bg-white p-6 shadow rounded-lg mb-6">
+    <div className="bg- p-6 shadow rounded-lg mb-6">
       <h2 className="text-2xl font-bold mb-4">Select Usable Photos</h2>
       <div className="grid grid-cols-3 gap-4">
-        {photos.map((photo) => (
+        {uploadedPhotos.map((photo) => (
           <div key={photo.id} className="relative">
             <img
               src={photo.url}
@@ -37,6 +47,13 @@ const PhotoSelection = ({ photos, onSelect }) => {
           </div>
         ))}
       </div>
+      <input
+        type="file"
+        accept="image/*"
+        multiple
+        onChange={handleUpload}
+        className="mt-4"
+      />
       <button
         onClick={handleSubmit}
         className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"

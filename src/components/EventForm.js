@@ -15,7 +15,7 @@ const EventForm = ({ onCreate }) => {
   };
 
   return (
-    <div className="bg-white p-6 shadow rounded-lg mb-6">
+    <div className="bg-[#FFF6DB] p-6 mt-4 shadow rounded-lg mb-6">
       <h2 className="text-2xl font-bold mb-4">Create Event</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">

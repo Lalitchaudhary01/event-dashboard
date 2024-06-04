@@ -1,7 +1,7 @@
 import React from "react";
 
 const SubscriptionDetails = ({ subscription }) => (
-  <div className="bg-white p-6 shadow rounded-lg">
+  <div className="bg-[#E6E7F2] p-6 ml-2 shadow rounded-lg">
     <h2 className="text-2xl font-bold mb-4 text-gray-800">
       Current Subscription
     </h2>

@@ -12,8 +12,10 @@ const CameramanAssignment = ({ cameramen, onAssign }) => {
   };
 
   return (
-    <div className="bg-white p-6 shadow rounded-lg mb-6">
-      <h2 className="text-2xl font-bold mb-4">Assign Cameraman</h2>
+    <div className="bg-[#FFECEB] p-6 shadow rounded-lg mb-6">
+      <h2 className="text-2xl font-bold mb-4 text-gray-800">
+        Assign Cameraman
+      </h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
           <label className="block text-gray-700">Event ID</label>
@@ -22,6 +24,7 @@ const CameramanAssignment = ({ cameramen, onAssign }) => {
             value={eventId}
             onChange={(e) => setEventId(e.target.value)}
             className="w-full p-2 border rounded"
+            placeholder="Enter event ID"
           />
         </div>
         <div className="mb-4">
